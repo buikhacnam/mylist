@@ -18,10 +18,8 @@ function newTodo(event) {
 			alert("todo cannot be blank");
 		} else {
 		item = `<li class="item">
-					  <i class="far fa-check-circle"></i>
-
 	                  <p class="text">${what}</p>
-	                  
+	                  <i class="far fa-check-circle"></i>
 	                  <i class="fas fa-trash-alt"></i>	
         		</li>`;
 		list.insertAdjacentHTML(position, item);
