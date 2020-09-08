@@ -11,7 +11,8 @@ body {
 	background-image: linear-gradient(to right top, #d16ba5, #e07498, #e9818c, #ec8f85, #ec9f82, #f1a97f, #f3b47d, #f3c07c, #f9ca74, #fdd56d, #fde166, #fbed5f);
 	min-height: 100vh;
 	color: white;
-
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 a {
@@ -24,16 +25,22 @@ a {
 	margin: 10px;
 }
 
+.header h1 {
+	font-weight: 900;
+	font-size: 3em;
+	text-align: center;
+}
 .clear {
 	display: flex;
-	justify-content: flex-end;
-	padding-bottom: 20px;
+	justify-content: space-between;
+	padding-bottom: 10px;
+	padding-top: 10px;
 }
 
 .add-to-do {
 	
 	padding: 15px;
-	padding-left: 25px;
+	
 	padding-right: 25px;
 	border-radius: 5px;
 	background-color: #FBED5F;
@@ -68,6 +75,7 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 	align-items: center;
 	align-content: center;
 
+
 }
 
 .content {
@@ -80,12 +88,26 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 	justify-content: flex-end;
 	align-items: center;
 	align-content: center;
-	grid-gap: 10px;
+	grid-gap: 15px;
 	padding-bottom: 20px;
 	font-size: 1.5em;
 }
 
 .text {
 	justify-content: flex-start;
+}
+
+.trash i:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.done i:hover {
+	color: blue;
+	cursor: pointer;
+}
+
+ul #list {
+  list-style-type: circle;
 }
 
