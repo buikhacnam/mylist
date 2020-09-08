@@ -22,7 +22,7 @@ function newTodo(event) {
 		} else {
 		item = `<li class="item">
 	                  <p class="text">${what}</p>
-	                  <p class="done"><i class="far fa-check-circle"></i></p>
+	                  <p class="done"><i class="fas fa-check-circle"></i></p>
 	                 <p class=trash><i class="fas fa-trash-alt"></i></p>	
         		</li>`;
 		list.insertAdjacentHTML(position, item);
@@ -40,7 +40,7 @@ function newTodo(event) {
   	
 
 
-
+//////////////date////////////////////////////////////////
 
 function displayDate() {
 	let now = new Date();
