@@ -1,0 +1,35 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.4;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
+	align-content: center;
+
+}
+
+.item {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+	grid-gap: 10px;
+	padding-bottom: 20px;
+}
