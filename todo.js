@@ -4,6 +4,7 @@ const list = document.getElementById("list");
 const input = document.getElementById("input");
 
 
+
 let ul;
 
 let data = localStorage.getItem("main");
@@ -42,9 +43,10 @@ function newTodo(event) {
 		done: false,
 		id: ul.length
 		
+		
 	}
 
-	if(event.keyCode == 13) {
+	if(event.keyCode == 13 || event.target.attributes.id.value == "plus") {
 		
 		const title = input.value;
 		if (title == "") {
@@ -73,7 +75,7 @@ function addTodo(obj) {
 		}
 	const item = ` <li class="item">
                      <p class="${obj.textStatus}">${obj.title}</p>
-                     <p class="${obj.doneStatus}"><i class="fas fa-check-circle" job="complete" id="${obj.id}" count="${obj.count}"></i></p>
+                     <p class="${obj.doneStatus}"><i class="fas fa-check-circle" job="complete" id="${obj.id}"></i></p>
                      <p class="${obj.eraseStatus}"><i class="fas fa-trash-alt" job="delete" id="${obj.id}"></i></p>  
                 </li>`;
 		list.insertAdjacentHTML(position, item);
@@ -111,11 +113,14 @@ list.addEventListener("click", function(event)  {
 
 function completeTodo(element) {
     
+    
     console.log("complete");
-
+   
     element.parentNode.parentNode.querySelector(".text").classList.toggle("text-complete");
-	element.parentNode.classList.toggle("after-done");;
+	element.parentNode.classList.toggle("after-done");
 	element.parentNode.parentNode.querySelector(".erase").classList.toggle("after-erase");
+	
+	
 }
 
 function deleteTodo(element) {
@@ -132,6 +137,9 @@ function reset() {
 	location.reload();
 }
 
+
+const plus = document.getElementById("plus");
+plus.addEventListener("click", newTodo);
 
 
 //////////////date////////////////////////////////////////

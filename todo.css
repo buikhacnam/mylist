@@ -71,6 +71,10 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 	border-bottom: 3px solid white;
 } 
 
+#plus:hover {
+	cursor: pointer;
+}
+
 .container {
 	display: flex;
 	flex-direction: column;
@@ -107,23 +111,35 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 	justify-content: flex-start;
 	color: black;
 	text-decoration: line-through;
-	opacity: 0.6;
+	opacity: 0.7;
 
 }
 
 .done {
 	color: white;
+	
+}
+.done i:hover {
+	cursor: pointer;
+}
+.after-done {
+	opacity: 0.7;
 }
 
-.after-done {
-	opacity: 0.5;
-}
 
 .erase {
 	color: white;
 }
 
+.erase i:hover {
+	cursor: pointer;
+}
+
 .after-erase {
-	opacity: 0.5;
+	opacity: 0.7;
+}
+
+.clear:hover {
+	cursor: pointer;
 }
 
