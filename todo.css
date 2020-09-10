@@ -99,13 +99,15 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 
 .text {
 	justify-content: flex-start;
-	color: #1D3931;
+	color: black;
 	font-family: 'Grandstander', cursive;
 }
 
 .text-complete {
+	justify-content: flex-start;
+	color: black;
 	text-decoration: line-through;
-	opacity: 0.5;
+	opacity: 0.6;
 
 }
 

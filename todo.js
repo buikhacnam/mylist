@@ -41,6 +41,7 @@ function newTodo(event) {
 		trash: false,
 		done: false,
 		id: ul.length
+		
 	}
 
 	if(event.keyCode == 13) {
@@ -61,15 +62,26 @@ function newTodo(event) {
 function addTodo(obj) {
 	if (obj.trash == false) {
 	const position = "beforeend";
+		if (!obj.done) {
+			obj.textStatus = "text";
+			obj.doneStatus = "done";
+			obj.eraseStatus = "erase";
+		} else {
+			obj.textStatus = "text-complete";
+			obj.doneStatus = "after-done";
+			obj.eraseStatus = "after-erase";
+		}
 	const item = ` <li class="item">
-                     <p class="text">${obj.title}</p>
-                     <p class="done"><i class="fas fa-check-circle" job="complete" id="${obj.id}"></i></p>
-                     <p class="erase"><i class="fas fa-trash-alt" job="delete" id="${obj.id}"></i></p>  
+                     <p class="${obj.textStatus}">${obj.title}</p>
+                     <p class="${obj.doneStatus}"><i class="fas fa-check-circle" job="complete" id="${obj.id}" count="${obj.count}"></i></p>
+                     <p class="${obj.eraseStatus}"><i class="fas fa-trash-alt" job="delete" id="${obj.id}"></i></p>  
                 </li>`;
 		list.insertAdjacentHTML(position, item);
 		localStorage.setItem("main", JSON.stringify(ul));
 		input.value = "";
-	} 
+	} else{
+		return "";
+	}
 
 }
 
@@ -88,6 +100,8 @@ list.addEventListener("click", function(event)  {
 
 	if(deleteOrComplete == "complete"){
 		completeTodo(element);
+		ul[parseInt(element.attributes.id.value)].done = true;
+		localStorage.setItem("main", JSON.stringify(ul));
 	} else if (deleteOrComplete == "delete"){
 		deleteTodo(element);
 		ul[parseInt(element.attributes.id.value)].trash = true;
@@ -96,6 +110,7 @@ list.addEventListener("click", function(event)  {
 })
 
 function completeTodo(element) {
+    
     console.log("complete");
 
     element.parentNode.parentNode.querySelector(".text").classList.toggle("text-complete");
@@ -109,11 +124,14 @@ function deleteTodo(element) {
 	
 }
 
+clear.addEventListener("click", reset);
 
 
+function reset() {
+	window.localStorage.removeItem("main");
+	location.reload();
+}
 
-
-  	
 
 
 //////////////date////////////////////////////////////////
