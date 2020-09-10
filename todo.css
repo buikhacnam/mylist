@@ -95,19 +95,28 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 
 .text {
 	justify-content: flex-start;
+	color: #1D3931;
+	font-family: 'Grandstander', cursive;
 }
 
-.trash i:hover {
-  color: red;
-  cursor: pointer;
+.text-complete {
+	text-decoration: line-through;
+	opacity: 0.5;
+
 }
 
-.done i:hover {
-	color: blue;
-	cursor: pointer;
+.done {
+	color: white;
 }
 
-ul #list {
-  list-style-type: circle;
+.after-done {
+	opacity: 0.5;
 }
 
+.erase {
+	color: white;
+}
+
+.after-erase {
+	opacity: 0.5;
+}
