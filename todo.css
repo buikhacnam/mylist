@@ -13,6 +13,7 @@ body {
 	color: white;
     padding-left: 10px;
     padding-right: 10px;
+     background-repeat: no-repeat;
 }
 
 a {
@@ -39,9 +40,12 @@ a {
 
 .add-to-do {
 	display: flex;
-	padding: 15px;
 	
-	padding-right: 25px;
+	
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 5px;
+	padding-right:5px;
 	border-radius: 5px;
 	background-color: #FBED5F;
 	-webkit-box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
@@ -74,7 +78,7 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 	justify-items: center;
 	align-items: center;
 	align-content: center;
-
+  
 
 }
 
@@ -121,9 +125,3 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 	opacity: 0.5;
 }
 
-
-@media screen and (max-width: 700px){
-	.main-container{
-		width: 95%;
-	}
-}
