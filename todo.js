@@ -101,9 +101,12 @@ list.addEventListener("click", function(event)  {
 
 
 	if(deleteOrComplete == "complete"){
-		completeTodo(element);
-		ul[parseInt(element.attributes.id.value)].done = true;
-		localStorage.setItem("main", JSON.stringify(ul));
+		//if(!ul[parseInt(element.attributes.id.value)].done){
+			completeTodo(element);
+		//} else {
+		//	completeTodo2(element);
+		//}
+		
 	} else if (deleteOrComplete == "delete"){
 		deleteTodo(element);
 		ul[parseInt(element.attributes.id.value)].trash = true;
@@ -112,15 +115,25 @@ list.addEventListener("click", function(event)  {
 })
 
 function completeTodo(element) {
-    
-    
+ 
     console.log("complete");
-   
+  
     element.parentNode.parentNode.querySelector(".text").classList.toggle("text-complete");
 	element.parentNode.classList.toggle("after-done");
 	element.parentNode.parentNode.querySelector(".erase").classList.toggle("after-erase");
 	
 	
+	ul[parseInt(element.attributes.id.value)].done = ul[parseInt(element.attributes.id.value)].done ? false : true;
+		localStorage.setItem("main", JSON.stringify(ul));
+}
+
+function completeTodo2(element) {
+	element.parentNode.parentNode.querySelector(".text-complete").classList.toggle("text");
+	element.parentNode.classList.toggle("done");
+	element.parentNode.parentNode.querySelector(".after-erase").classList.toggle("erase");
+
+	ul[parseInt(element.attributes.id.value)].done = ul[parseInt(element.attributes.id.value)].done ? false : true;
+		localStorage.setItem("main", JSON.stringify(ul));
 }
 
 function deleteTodo(element) {
