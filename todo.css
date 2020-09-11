@@ -108,6 +108,7 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 }
 
 .text-complete {
+	font-family: 'Grandstander', cursive;
 	justify-content: flex-start;
 	color: black;
 	text-decoration: line-through;
@@ -137,6 +138,10 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 
 .after-erase {
 	opacity: 0.7;
+}
+
+.after-erase i:hover {
+	cursor: pointer;
 }
 
 .clear:hover {
