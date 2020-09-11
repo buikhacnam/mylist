@@ -55,18 +55,18 @@ function addTodo(obj) {
 	if (obj.trash == false) {
 	const position = "beforeend";
 		if (!obj.done) {
-			obj.textStatus = "text";
+			obj.textStatus = "";
 			obj.doneStatus = "done";
-			obj.eraseStatus = "erase";
+			obj.eraseStatus = "";
 		} else {
 			obj.textStatus = "text-complete";
 			obj.doneStatus = "after-done";
 			obj.eraseStatus = "after-erase";
 		}
 	const item = ` <li class="item">
-                     <p class="${obj.textStatus}">${obj.title}</p>
+                     <p class="text ${obj.textStatus}">${obj.title}</p>
                      <p class="${obj.doneStatus}"><i class="fas fa-check-circle" job="complete" id="${obj.id}"></i></p>
-                     <p class="${obj.eraseStatus}"><i class="fas fa-trash-alt" job="delete" id="${obj.id}"></i></p>  
+                     <i class="fas fa-trash-alt erase ${obj.eraseStatus}" job="delete" id="${obj.id}"></i>  
                 </li>`;
 		list.insertAdjacentHTML(position, item);
 		localStorage.setItem("main", JSON.stringify(ul));
@@ -100,12 +100,12 @@ function completeTodo(element) {
 }
 
 function deleteTodo(element) {
-	element.parentNode.parentNode.classList.toggle("erase-transition");
+	element.parentNode.classList.toggle("erase-transition");
 	
 	ul[parseInt(element.attributes.id.value)].trash = true;
 	
 	setTimeout(() => {
-		element.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode);
+		element.parentNode.parentNode.removeChild(element.parentNode);
 	}, 700);
 }
 

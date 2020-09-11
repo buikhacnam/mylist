@@ -98,7 +98,6 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 	display: grid;
 	grid-template-columns: auto auto auto;
 	justify-content: flex-end;
-	align-items: center;
 	align-content: center;
 	grid-gap: 15px;
 	padding-bottom: 20px;

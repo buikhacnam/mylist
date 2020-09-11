@@ -35,10 +35,10 @@
         <div class="content">
             <ul id="list">
                <!-- 
-                <li class="item">
-                      <p class="text">${what}</p>
-                     <p class="done"><i class="fas fa-check-circle" job="complete"></i></p>
-                     <p class="erase"><i class="fas fa-trash-alt" job="delete"></i></p>  
+                <li <li class="item">
+                     <p class="text ${obj.textStatus}">${obj.title}</p>
+                     <p class="${obj.doneStatus}"><i class="fas fa-check-circle" job="complete" id="${obj.id}"></i></p>
+                     <i class="fas fa-trash-alt erase ${obj.eraseStatus}" job="delete" id="${obj.id}"></i>  
                 </li> -->
             </ul>
         </div>
