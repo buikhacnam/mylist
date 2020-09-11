@@ -2,24 +2,23 @@ const clear = document.querySelector(".clear");
 const dateElement = document.getElementById("date");
 const list = document.getElementById("list");
 const input = document.getElementById("input");
+const plus = document.getElementById("plus");
 
+//submitting a new item by clicking the plus icon:
+plus.addEventListener("click", newTodo); 
 
-
+// this ul array contains all the items on the list:
 let ul;
 
+//get data from the key "main" from localstorage: 
 let data = localStorage.getItem("main");
 
 if(data){
-    ul = JSON.parse(data);
-    load(ul);
-   
-   
-}else  {
-    // if data isn't empty
+    ul = JSON.parse(data); // convert a "string" object to a real object
+    load(ul);   // load each of the object in ul array
+} else  {
     ul = [];
-
 }
-
 
 function load(array) {
 	array.forEach(obj => {
@@ -28,26 +27,18 @@ function load(array) {
 }
 
 
-
-//add an item to the list user the enter key
 input.addEventListener("keyup", newTodo);
 
-
-
-
-
+//set up object item and push it in ul array and display function (addTodo):
 function newTodo(event) {
 	let li = {
 		title: "",
 		trash: false,
 		done: false,
-		id: ul.length
-		
-		
+		id: ul.length	
 	}
 
 	if(event.keyCode == 13 || event.target.attributes.id.value == "plus") {
-		
 		const title = input.value;
 		if (title == "") {
 			input.blur();
@@ -56,11 +47,10 @@ function newTodo(event) {
 			ul.push(li);
 			addTodo(li);
 		}	
-	}
-	
+	}	
 }
 
-
+//display the list:
 function addTodo(obj) {
 	if (obj.trash == false) {
 	const position = "beforeend";
@@ -81,77 +71,53 @@ function addTodo(obj) {
 		list.insertAdjacentHTML(position, item);
 		localStorage.setItem("main", JSON.stringify(ul));
 		input.value = "";
-	} else{
+	} else {
 		return "";
 	}
-
 }
 
-
-
-
-
-
-
-//test the trash and complete button:
-
+// when you click on "done" or "trash" icon:
 list.addEventListener("click", function(event)  {
 	const element = event.target;
 	const deleteOrComplete = element.attributes.job.value;
 
-
 	if(deleteOrComplete == "complete"){
-		//if(!ul[parseInt(element.attributes.id.value)].done){
-			completeTodo(element);
-		//} else {
-		//	completeTodo2(element);
-		//}
-		
+		completeTodo(element);
 	} else if (deleteOrComplete == "delete"){
 		deleteTodo(element);
-		ul[parseInt(element.attributes.id.value)].trash = true;
-			localStorage.setItem("main", JSON.stringify(ul));
 	}
+	localStorage.setItem("main", JSON.stringify(ul));
 })
 
+// toggle classes of the item when it's done or deleted & update the local storage:
+
 function completeTodo(element) {
- 
-    console.log("complete");
-  
     element.parentNode.parentNode.querySelector(".text").classList.toggle("text-complete");
 	element.parentNode.classList.toggle("after-done");
 	element.parentNode.parentNode.querySelector(".erase").classList.toggle("after-erase");
 	
-	
 	ul[parseInt(element.attributes.id.value)].done = ul[parseInt(element.attributes.id.value)].done ? false : true;
-		localStorage.setItem("main", JSON.stringify(ul));
 }
 
-
-
 function deleteTodo(element) {
-	console.log("delete");
 	element.parentNode.parentNode.classList.toggle("erase-transition");
+	
+	ul[parseInt(element.attributes.id.value)].trash = true;
+	
 	setTimeout(() => {
 		element.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode);
 	}, 700);
 }
 
+// reset:
 clear.addEventListener("click", reset);
-
 
 function reset() {
 	window.localStorage.removeItem("main");
 	location.reload();
 }
 
-
-const plus = document.getElementById("plus");
-plus.addEventListener("click", newTodo);
-
-
-//////////////date////////////////////////////////////////
-
+//date setup:
 function displayDate() {
 	let now = new Date();
   	let date = document.querySelector('.date');
