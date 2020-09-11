@@ -127,19 +127,14 @@ function completeTodo(element) {
 		localStorage.setItem("main", JSON.stringify(ul));
 }
 
-function completeTodo2(element) {
-	element.parentNode.parentNode.querySelector(".text-complete").classList.toggle("text");
-	element.parentNode.classList.toggle("done");
-	element.parentNode.parentNode.querySelector(".after-erase").classList.toggle("erase");
 
-	ul[parseInt(element.attributes.id.value)].done = ul[parseInt(element.attributes.id.value)].done ? false : true;
-		localStorage.setItem("main", JSON.stringify(ul));
-}
 
 function deleteTodo(element) {
 	console.log("delete");
-	element.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode);
-	
+	element.parentNode.parentNode.classList.toggle("erase-transition");
+	setTimeout(() => {
+		element.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode);
+	}, 800);
 }
 
 clear.addEventListener("click", reset);

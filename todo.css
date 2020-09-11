@@ -2,6 +2,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	transition: 0.4s;
 
 }
 
@@ -13,7 +14,7 @@ body {
 	color: white;
     padding-left: 10px;
     padding-right: 10px;
-     background-repeat: no-repeat;
+  
 }
 
 a {
@@ -40,8 +41,6 @@ a {
 
 .add-to-do {
 	display: flex;
-	
-	
 	padding-top: 15px;
 	padding-bottom: 15px;
 	padding-left: 5px;
@@ -55,10 +54,7 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 
 .add-to-do i {
 	font-size: 2.3em;
-	padding-left: 7px;
-	
-
-
+	padding-left: 7px;	
 }
 
 .add-to-do input {
@@ -66,13 +62,11 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 	outline:none;
 	font-size: 20px;
 	border: none;
-    background-color: #FBED5F;
-    
+    background-color: #FBED5F;  
 }
 
 .add-to-do input:focus {
-	
-	border-bottom: 3px solid white;
+	border-bottom: 2px solid white;
 } 
 
 #plus:hover {
@@ -86,12 +80,6 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 	justify-items: center;
 	align-items: center;
 	align-content: center;
-  
-
-}
-
-.content {
-
 }
 
 .item {
@@ -117,7 +105,6 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 	color: black;
 	text-decoration: line-through;
 	opacity: 0.7;
-
 }
 
 .done {
@@ -142,6 +129,12 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 
 .after-erase {
 	opacity: 0.7;
+}
+
+.erase-transition {
+	transition-duration: 1s;
+	opacity: 0.5;
+	transform: translateY(-800px);
 }
 
 .after-erase i:hover {
