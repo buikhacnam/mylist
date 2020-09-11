@@ -76,6 +76,7 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
     border-bottom: 2px solid #FBED5F;
    font-family: 'Grandstander', cursive;
     opacity: 0.8;
+    width: 100%;
 }
 
 .add-to-do input:focus {
@@ -127,16 +128,24 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 }
 .after-done {
 	opacity: 0.5;
+	color: red;
 }
 
+.after-done i:hover {
+	cursor: pointer;
+}
 
 .erase {
 	color: white;
 }
 
-.erase i:hover {
+i:hover {
 	cursor: pointer;
+	color: red;
 }
+
+
+
 
 .after-erase {
 	opacity: 0.5;
@@ -152,6 +161,7 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 	cursor: pointer;
 }
 
-.clear:hover {
+#clear:hover {
 	cursor: pointer;
+	color: red;
 }

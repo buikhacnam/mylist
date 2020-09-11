@@ -1,4 +1,4 @@
-const clear = document.querySelector(".clear");
+const clear = document.getElementById("clear");
 const dateElement = document.getElementById("date");
 const list = document.getElementById("list");
 const input = document.getElementById("input");
@@ -114,6 +114,7 @@ clear.addEventListener("click", reset);
 
 function reset() {
 	window.localStorage.removeItem("main");
+	window.localStorage.removeItem("titleList");
 	location.reload();
 }
 
@@ -137,3 +138,29 @@ function dateBuilder(now) {
 }
 
 displayDate();
+
+// set up the title:
+
+const titleList = document.getElementById("titleList");
+
+function getTitle() {
+	if (localStorage.getItem("titleList") === null) {
+		titleList.textContent = "[nhập tên list]";
+	} else {
+		titleList.textContent = localStorage.getItem("titleList");
+	}
+}
+
+function setTitle(e) {
+	if (e.type === "keypress") {
+		if(e.which == 13 || e.keyCode == 13) {
+			localStorage.setItem("titleList", e.target.innerText);
+			titleList.blur()
+		} else {
+			localStorage.setItem("titleList", e.target.innerText);
+		}
+	}
+}
+
+titleList.addEventListener("keypress", setTitle);
+getTitle();
