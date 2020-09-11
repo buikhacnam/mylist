@@ -134,7 +134,7 @@ function deleteTodo(element) {
 	element.parentNode.parentNode.classList.toggle("erase-transition");
 	setTimeout(() => {
 		element.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode);
-	}, 800);
+	}, 700);
 }
 
 clear.addEventListener("click", reset);
