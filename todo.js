@@ -142,10 +142,11 @@ displayDate();
 // set up the title:
 
 const titleList = document.getElementById("titleList");
+const edit = document.getElementById("edit");
 
 function getTitle() {
 	if (localStorage.getItem("titleList") === null) {
-		titleList.textContent = "[nhập tên list]";
+		titleList.textContent = "Todo List";
 	} else {
 		titleList.textContent = localStorage.getItem("titleList");
 	}
@@ -155,12 +156,32 @@ function setTitle(e) {
 	if (e.type === "keypress") {
 		if(e.which == 13 || e.keyCode == 13) {
 			localStorage.setItem("titleList", e.target.innerText);
-			titleList.blur()
-		} else {
+			titleList.blur();
+		} 
+
+	} else {
 			localStorage.setItem("titleList", e.target.innerText);
-		}
+			console.log("ekse");
 	}
+
 }
 
-titleList.addEventListener("keypress", setTitle);
+function setTitle2() {
+	titleList.setAttribute("contenteditable", true);
+	 selectElementContents(titleList);
+	
+}
+
+ titleList.addEventListener("keypress", setTitle);
+  titleList.addEventListener("blur", setTitle);
+edit.addEventListener("click", setTitle2);
+
+function selectElementContents(el) {
+    var range = document.createRange();
+    range.selectNodeContents(el);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+}
+
 getTitle();

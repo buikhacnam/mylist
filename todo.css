@@ -38,7 +38,7 @@ a {
 
 .header h1 {
 	
-	font-size: 3.5em;
+	font-size: 4em;
 	text-align: center;
 	font-family: 'Grandstander', cursive;
 }
@@ -133,6 +133,8 @@ box-shadow: 10px 10px 16px -9px rgba(0,0,0,0.75);
 
 .after-done i:hover {
 	cursor: pointer;
+	color: white;
+	opacity: 2;
 }
 
 .erase {
@@ -160,6 +162,8 @@ i:hover {
 
 .after-erase i:hover {
 	cursor: pointer;
+	
+	opacity: 1;
 }
 
 #clear:hover {
