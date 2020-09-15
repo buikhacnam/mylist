@@ -96,7 +96,7 @@ function completeTodo(element) {
 	element.parentNode.classList.toggle("after-done");
 	element.parentNode.parentNode.querySelector(".erase").classList.toggle("after-erase");
 	
-	ul[parseInt(element.attributes.id.value)].done = ul[parseInt(element.attributes.id.value)].done ? false : true;
+	ul[parseInt(element.attributes.id.value)].done = !ul[parseInt(element.attributes.id.value)].done;
 }
 
 function deleteTodo(element) {
