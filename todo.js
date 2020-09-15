@@ -146,7 +146,7 @@ const edit = document.getElementById("edit");
 
 function getTitle() {
 	if (localStorage.getItem("titleList") === null) {
-		titleList.textContent = "Todo List";
+		titleList.textContent = "My List";
 	} else {
 		titleList.textContent = localStorage.getItem("titleList");
 	}
