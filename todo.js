@@ -161,7 +161,6 @@ function setTitle(e) {
 
 	} else {
 			localStorage.setItem("titleList", e.target.innerText);
-			console.log("ekse");
 	}
 
 }
@@ -172,8 +171,8 @@ function setTitle2() {
 	
 }
 
- titleList.addEventListener("keypress", setTitle);
-  titleList.addEventListener("blur", setTitle);
+titleList.addEventListener("keypress", setTitle);
+titleList.addEventListener("blur", setTitle);
 edit.addEventListener("click", setTitle2);
 
 function selectElementContents(el) {
