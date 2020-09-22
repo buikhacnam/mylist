@@ -11,7 +11,7 @@ plus.addEventListener("click", newTodo);
 let ul;
 
 //get data from the key "main" from localstorage: 
-let data = localStorage.getItem("main");
+let data = localStorage.getItem("todolist");
 
 if(data){
     ul = JSON.parse(data); // convert a "string" object to a real object
@@ -69,7 +69,7 @@ function addTodo(obj) {
                      <i class="fas fa-trash-alt erase ${obj.eraseStatus}" job="delete" id="${obj.id}"></i>  
                 </li>`;
 		list.insertAdjacentHTML(position, item);
-		localStorage.setItem("main", JSON.stringify(ul));
+		localStorage.setItem("todolist", JSON.stringify(ul));
 		input.value = "";
 	} else {
 		return "";
@@ -86,7 +86,7 @@ list.addEventListener("click", function(event)  {
 	} else if (deleteOrComplete == "delete"){
 		deleteTodo(element);
 	}
-	localStorage.setItem("main", JSON.stringify(ul));
+	localStorage.setItem("todolist", JSON.stringify(ul));
 })
 
 // toggle classes of the item when it's done or deleted & update the local storage:
@@ -113,7 +113,7 @@ function deleteTodo(element) {
 clear.addEventListener("click", reset);
 
 function reset() {
-	window.localStorage.removeItem("main");
+	window.localStorage.removeItem("todolist");
 	window.localStorage.removeItem("titleList");
 	location.reload();
 }
